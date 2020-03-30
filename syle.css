@@ -1,0 +1,272 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+@-webkit-keyframes out-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes out-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes in-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes in-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+html {
+  /*its was 10px so we did 10/16 * 100 to get the percentage(16 is the default font size for browsers*/
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 106, 0, 0.8)), to(rgba(238, 9, 121, 0.5))), url(back.jpg);
+  background-image: linear-gradient(to right bottom, rgba(255, 106, 0, 0.8), rgba(238, 9, 121, 0.5)), url(back.jpg);
+  background-size: cover;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container {
+  margin: 0 auto;
+  width: 80vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 75rem 1fr;
+      grid-template-columns: 75rem 1fr;
+  border-radius: 5px;
+  padding: 2rem 3rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(255, 255, 255, 0.795);
+}
+
+.calender-side {
+  margin: 2rem;
+  padding: 1rem 0;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 10rem 1fr;
+      grid-template-rows: 10rem 1fr;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.event-side {
+  margin: 2rem;
+  border-left: 1px solid rgba(0, 0, 0, 0.075);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  color: #ff6a00;
+}
+
+.months {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.137);
+  margin-bottom: .6rem;
+}
+
+.months__month-name {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin-bottom: .6rem;
+  color: rgba(0, 0, 0, 0.322);
+  cursor: pointer;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.months__month-name:hover {
+  font-weight: 800;
+  color: black;
+}
+
+.active {
+  font-weight: 800;
+  color: black;
+}
+
+.days-of-week {
+  min-width: 15rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin-bottom: .6rem;
+  text-align: center;
+  color: #ff6a00;
+  margin-bottom: 2rem;
+}
+
+.display-months {
+  width: 70rem;
+  min-height: 30rem;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+.anim {
+  -webkit-animation: out-in 1s ease-in-out;
+          animation: out-in 1s ease-in-out;
+}
+
+.available-months {
+  max-width: 210rem;
+  min-height: 30rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.month-days {
+  width: 70rem;
+  min-height: 30rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  -ms-grid-rows: (1fr)[6];
+      grid-template-rows: repeat(6, 1fr);
+  font-size: 1.3rem;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.spaces {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+}
+
+.av-days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  width: 2.4rem;
+  height: 2.4rem;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.av-days:hover {
+  font-weight: 700;
+  color: white;
+  border-radius: 100px;
+  background-color: #ff6a00;
+}
+
+.today {
+  font-weight: 900;
+  font-size: 1.4rem;
+  color: #ee0979;
+}
+/*# sourceMappingURL=syle.css.map */

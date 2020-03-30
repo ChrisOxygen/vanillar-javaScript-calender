@@ -1,0 +1,213 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+$color-orange: #ff6a00;
+$color-pink: #ee0979;
+
+@keyframes out-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes in-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+html {
+    /*its was 10px so we did 10/16 * 100 to get the percentage(16 is the default font size for browsers*/
+    font-size: 62.5%;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-image: linear-gradient(to right bottom,
+            rgba($color-orange, 0.8),
+            rgba($color-pink, 0.5)),
+        url(back.jpg);
+
+    background-size: cover;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 75rem 1fr;
+    border-radius: 5px;
+    padding: 2rem 3rem;
+    align-content: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.795);
+    //box-shadow: 1px 5px 16px -4px rgba(0, 0, 0, 0.75);
+}
+
+.calender-side {
+    margin: 2rem;
+    padding: 1rem 0;
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-rows: 10rem 1fr;
+    grid-template-columns: 1fr;
+
+    align-content: center;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.event-side {
+    margin: 2rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.075);
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    color: $color-orange;
+
+}
+
+.months {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
+
+    margin-bottom: .6rem;
+
+    &__month-name {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        margin-bottom: .6rem;
+        color: rgba(0, 0, 0, 0.322);
+        cursor: pointer;
+        transition: all .4s;
+
+        &:hover {
+
+            font-weight: 800;
+            color: black;
+
+        }
+
+
+    }
+}
+
+.active {
+    font-weight: 800;
+    color: black;
+}
+
+
+.days-of-week {
+    min-width: 15rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    margin-bottom: .6rem;
+    text-align: center;
+    color: $color-orange;
+
+    margin-bottom: 2rem;
+
+}
+
+.display-months {
+    width: 70rem;
+    min-height: 30rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .4s;
+
+    //animation: in-out 1s ease-in-out;
+}
+
+.anim {
+    animation: out-in 1s ease-in-out;
+}
+
+.available-months {
+    max-width: 70rem * 3;
+    min-height: 30rem;
+    display: flex;
+}
+
+.month-days {
+    width: 70rem;
+    min-height: 30rem;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    text-align: center;
+
+}
+
+.spaces {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.av-days {
+    display: flex;
+    cursor: pointer;
+    width: 2.4rem;
+    height: 2.4rem;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    transition: all .3s;
+
+    &:hover {
+        font-weight: 700;
+        color: white;
+        border-radius: 100px;
+        background-color: $color-orange;
+    }
+}
+
+.today {
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: $color-pink;
+}
